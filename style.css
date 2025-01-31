@@ -1,9 +1,98 @@
+/* Apply styles to the body */
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f0f0f0;
+    background-color: #f0f8ff; /* Light blue background for the whole page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-h1 {
+/* Container for the form */
+.container {
+    background: rgb(138, 129, 129);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center; /* Center text inside the form */
+}
+
+/* Heading Style */
+h2 {
     color: #333;
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Input Fields with placeholders */
+input[type="text"], 
+input[type="password"], 
+input[type="tel"], 
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Makes sure padding doesn't affect width */
+    margin-bottom: 15px; /* Add space below the input fields */
+}
+
+input::placeholder {
+    color: #888; /* Lighter color for the placeholder */
+}
+
+/* Radio Buttons */
+.gender {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.gender input[type="radio"] {
+    margin-right: 5px;
+}
+
+.gender label {
+    margin-right: 20px;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        padding: 10px;
+    }
 }
