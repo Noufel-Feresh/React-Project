@@ -1,98 +1,127 @@
-/* Apply styles to the body */
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Light blue background for the whole page */
+}
+
+/* Gradient Background */
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Soft Blue Gradient */
 }
 
-/* Container for the form */
+/* Main Container */
 .container {
-    background: rgb(138, 129, 129);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 350px;
-    text-align: center; /* Center text inside the form */
+    display: flex;
+    width: 70%;
+    max-width: 900px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    padding: 20px;
 }
 
-/* Heading Style */
-h2 {
+/* Left Side - Cards */
+.left-section {
+    width: 40%;
+    padding: 20px;
+    background: #f1f3f8; /* Light Greyish Blue */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid #ddd; /* Light Border */
+}
+
+.left-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
     color: #333;
-    margin-bottom: 20px;
 }
 
-/* Label Styling */
-label {
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+}
+
+.card img {
+    width: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Right Side - Form */
+.right-section {
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-section h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
     font-weight: bold;
     display: block;
-    margin-top: 15px;
     margin-bottom: 5px;
+    color: #444;
 }
 
-/* Input Fields with placeholders */
-input[type="text"], 
-input[type="password"], 
-input[type="tel"], 
-input[type="email"] {
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
-    padding: 12px;
-    margin-top: 5px;
+    padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box; /* Makes sure padding doesn't affect width */
-    margin-bottom: 15px; /* Add space below the input fields */
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9; /* Light Grey Input Fields */
 }
 
-input::placeholder {
-    color: #888; /* Lighter color for the placeholder */
-}
-
-/* Radio Buttons */
-.gender {
+/* Align radio buttons and checkboxes */
+.radio-group, .checkbox-group {
     display: flex;
-    justify-content: space-evenly;
+    gap: 10px;
     align-items: center;
-    margin-top: 10px;
 }
 
-.gender input[type="radio"] {
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    width: auto;
     margin-right: 5px;
 }
 
-.gender label {
-    margin-right: 20px;
-}
-
-/* Submit Button */
-button {
+.form-group button {
     width: 100%;
-    padding: 12px;
-    background-color: #28a745;
+    padding: 10px;
+    background: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
     font-size: 16px;
+    transition: 0.3s ease;
 }
 
-button:hover {
-    background-color: #218838;
-}
-
-/* Responsive Design */
-@media (max-width: 400px) {
-    .container {
-        width: 90%;
-        padding: 20px;
-    }
-
-    button {
-        padding: 10px;
-    }
+.form-group button:hover {
+    background: #0056b3;
 }
