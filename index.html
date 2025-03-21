@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards & Form Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Left Section - Cards -->
+        <div class="left-section">
+            <h2>Team Members</h2>
+            <div class="card">
+               <img src="images/alpha.jpg" alt="User Image">
+                <h3>Alpha</h3>
+                <p>Software Engineer</p>
+            </div>
+            <div class="card">
+                 <img src="images/beta.jpeg" alt="User Image">
+                <h3>Beta</h3>
+                <p>UI/UX Designer</p>
+            </div>
+            <div class="card">
+                <img src="images/Gamma.png" alt="User Image">
+                <h3>Gamma</h3>
+                <p>Project Manager</p>
+            </div>
+        </div>
+
+        <!-- Right Section - Form -->
+        <div class="right-section">
+            <h2>Submit Your Details</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="desc">Description:</label>
+                    <textarea id="desc" placeholder="Write a brief description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob">
+                </div>
+
+                <div class="form-group">
+                    <label for="region">Select Region:</label>
+                    <select id="region">
+                        <option value="asia">Asia</option>
+                        <option value="europe">Europe</option>
+                        <option value="america">America</option>
+                        <option value="africa">Africa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="radio-group">
+                        <input type="radio" name="gender" value="male" id="male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" value="female" id="female">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Interests:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="coding">
+                        <label for="coding">Coding</label>
+                        <input type="checkbox" id="design">
+                        <label for="design">Design</label>
+                        <input type="checkbox" id="management">
+                        <label for="management">Management</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

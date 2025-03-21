@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.app-container {
+  padding: 20px;
+}
+
+.form input {
+  margin: 5px;
+  padding: 8px;
+}
+
+.form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.item-card {
+  background: white;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: RED;
+}
+
+.item-card button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
