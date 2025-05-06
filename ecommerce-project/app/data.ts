@@ -32,14 +32,14 @@ export const products = [
     name: "USB-C Hub",
     description:
       "A 6-in-1 USB-C hub featuring HDMI, USB 3.0, and SD card slots, ideal for expanding your laptop's connectivity options.",
-    price: 34.99,
+    price: 104.44,
   },
   {
     id: 6,
     name: "Laptop Sleeve",
     description:
       "Water-resistant laptop sleeve with a soft padded interior, providing excellent protection for your laptop during travel or daily commutes.",
-    price: 19.99,
+    price: 179.99,
   },
   {
     id: 7,
@@ -53,21 +53,21 @@ export const products = [
     name: "Gaming Chair",
     description:
       "An ergonomic gaming chair with adjustable lumbar support, headrest, and reclining features for a comfortable gaming experience.",
-    price: 199.99,
+    price: 217.99,
   },
   {
     id: 9,
     name: "Wireless Charger",
     description:
       "Fast wireless charging pad with overcharge protection, compatible with Qi-enabled smartphones and accessories for convenient charging.",
-    price: 29.99,
+    price: 289.90,
   },
   {
     id: 10,
     name: "Smart Watch",
     description:
       "A feature-rich smartwatch with fitness tracking, heart rate monitoring, sleep tracking, and notifications for seamless connectivity.",
-    price: 149.99,
+    price: 350.99,
   },
 
 ];

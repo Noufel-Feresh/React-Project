@@ -52,29 +52,32 @@ export default function Home() {
     }
   }, [selectedPrice]);
 
-  const handleAddtoCart = (item) => {
-    let itemIndex = tempCart.findIndex((it) => it.productId === item.id);
+ const handleAddtoCart = (item) => {
+   if (!tempCart || !Array.isArray(tempCart)) {
+     console.error("tempCart is undefined or not an array. Initializing as an empty array.");
+     setTempCart([]);
+     return;
+   }
 
-    console.log(itemIndex);
-    if (itemIndex === -1) {
-      setTempCart([
-        ...tempCart,
-        {
-          productId: item.id,
-          name: item.name,
-          description: item.description,
-          price: item.price,
-          count: 1,
-        },
-      ]);
-    } else {
-      const newCart = [...tempCart];
-      newCart[itemIndex].count++;
-      console.log("newCart", newCart);
-      setTempCart(newCart);
-    }
-  };
+   let itemIndex = tempCart.findIndex((it) => it.productId === item.id);
 
+   if (itemIndex === -1) {
+     setTempCart([
+       ...tempCart,
+       {
+         productId: item.id,
+         name: item.name,
+         description: item.description,
+         price: item.price,
+         count: 1,
+       },
+     ]);
+   } else {
+     const newCart = [...tempCart];
+     newCart[itemIndex].count++;
+     setTempCart(newCart);
+   }
+ };
   console.log("Cart", tempCart);
 
   return (
@@ -152,7 +155,7 @@ we updated our copied data based on the price selected
 
 {
   productId:
-  name: 
+  name:
   description:
   count:
 }
