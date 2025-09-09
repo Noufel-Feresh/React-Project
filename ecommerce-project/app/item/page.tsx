@@ -1,15 +1,39 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "@/utilitis/CartContext";
-import { products } from "../data";
+import { products, type Product } from "../data";
 
-export default function ItemDetails({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function ItemDetails({ params }: PageProps) {
   const router = useRouter();
-  const { tempCart, setTempCart } = useContext(CartContext);
+  const context = useContext(CartContext);
+  const [item, setItem] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const item = products.find((product) => product.id === parseInt(params.id));
+  if (!context) {
+    throw new Error('ItemDetails must be used within a CartProvider');
+  }
+
+  const { tempCart, setTempCart } = context;
+
+  useEffect(() => {
+    const getParams = async () => {
+      const { id } = await params;
+      const foundItem = products.find((product) => product.id === parseInt(id));
+      setItem(foundItem || null);
+      setLoading(false);
+    };
+    getParams();
+  }, [params]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!item) {
     return <div>Item not found</div>;

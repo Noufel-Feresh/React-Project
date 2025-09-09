@@ -6,15 +6,21 @@ import React, { useContext } from "react";
 import { useRouter } from "next/navigation";
 
 const CartPage = () => {
-  const { tempCart, setTempCart } = useContext(CartContext);
+  const context = useContext(CartContext);
   const router = useRouter();
 
-  const handleRemoveItem = (productId) => {
+  if (!context) {
+    throw new Error('CartPage must be used within a CartProvider');
+  }
+
+  const { tempCart, setTempCart } = context;
+
+  const handleRemoveItem = (productId: number) => {
     const newCart = tempCart.filter((item) => item.productId !== productId);
     setTempCart(newCart);
   };
 
-  const handleIncreaseCount = (productId) => {
+  const handleIncreaseCount = (productId: number) => {
     const newCart = tempCart.map((item) =>
       item.productId === productId
         ? { ...item, count: item.count + 1 }
@@ -23,7 +29,7 @@ const CartPage = () => {
     setTempCart(newCart);
   };
 
-  const handleDecreaseCount = (productId) => {
+  const handleDecreaseCount = (productId: number) => {
     const newCart = tempCart.map((item) =>
       item.productId === productId && item.count > 1
         ? { ...item, count: item.count - 1 }

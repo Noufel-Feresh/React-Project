@@ -1,4 +1,26 @@
-export const products = [
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+}
+
+export interface CartItem {
+  productId: number;
+  name: string;
+  description: string;
+  price: number;
+  count: number;
+}
+
+export interface PriceFilter {
+  type: number;
+  minPrice: number;
+  maxPrice: number;
+  price: string;
+}
+
+export const products: Product[] = [
   {
     id: 1,
     name: "Wireless Mouse",
@@ -72,4 +94,4 @@ export const products = [
 
 ];
 
-export const cart = [];
+export const cart: CartItem[] = [];

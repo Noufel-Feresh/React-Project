@@ -1,11 +1,11 @@
 "use client";
 
 import Navbar from "@/component/Navbar";
-import { cart, products } from "./data";
+import { products, type Product, type PriceFilter } from "./data";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "@/utilitis/CartContext";
 
-const prices = [
+const prices: PriceFilter[] = [
   {
     type: 0,
     minPrice: 0,
@@ -33,10 +33,15 @@ const prices = [
 ];
 
 export default function Home() {
-  const [tempData, setTempData] = useState<any>([]);
-  const { tempCart, setTempCart } = useContext(CartContext);
+  const [tempData, setTempData] = useState<Product[]>([]);
+  const context = useContext(CartContext);
+  const [selectedPrice, setSelectedPrice] = useState<PriceFilter[]>([]);
 
-  const [selectedPrice, setSelectedPrice] = useState([]);
+  if (!context) {
+    throw new Error('Home must be used within a CartProvider');
+  }
+
+  const { tempCart, setTempCart } = context;
 
   useEffect(() => {
     if (selectedPrice.length === 0) {
@@ -52,14 +57,14 @@ export default function Home() {
     }
   }, [selectedPrice]);
 
- const handleAddtoCart = (item) => {
+ const handleAddtoCart = (item: Product) => {
    if (!tempCart || !Array.isArray(tempCart)) {
      console.error("tempCart is undefined or not an array. Initializing as an empty array.");
      setTempCart([]);
      return;
    }
 
-   let itemIndex = tempCart.findIndex((it) => it.productId === item.id);
+   const itemIndex = tempCart.findIndex((it) => it.productId === item.id);
 
    if (itemIndex === -1) {
      setTempCart([
