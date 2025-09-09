@@ -1,15 +1,16 @@
 "use client";
 import React, { createContext, useState, ReactNode } from "react";
+import { CartItem } from "@/app/data";
 
 interface CartContextType {
-  tempCart: any[];
-  setTempCart: React.Dispatch<React.SetStateAction<any[]>>;
+  tempCart: CartItem[];
+  setTempCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [tempCart, setTempCart] = useState<any[]>([]);
+  const [tempCart, setTempCart] = useState<CartItem[]>([]);
 
   return (
     <CartContext.Provider value={{ tempCart, setTempCart }}>

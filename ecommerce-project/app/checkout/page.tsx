@@ -4,7 +4,13 @@ import { useContext } from "react";
 import { CartContext } from "@/utilitis/CartContext";
 
 const CheckoutPage = () => {
-  const { tempCart, setTempCart } = useContext(CartContext);
+  const context = useContext(CartContext);
+
+  if (!context) {
+    throw new Error('CheckoutPage must be used within a CartProvider');
+  }
+
+  const { tempCart, setTempCart } = context;
 
   const totalPrice = tempCart.reduce((acc, item) => acc + item.price * item.count, 0);
 
